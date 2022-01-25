@@ -25,7 +25,7 @@ public class MergeSort {
         if(arr.length <= 1)
             return;
         if(left < right) {
-            int mid = (left + right) / 2;
+            int mid = left + (right-left)/2; //This condition handles integer overflow if left+right is more than integer limit
             mergeSortRecursive(arr, left, mid);
             mergeSortRecursive(arr, mid + 1, right);
             merge(arr, left, mid, right);

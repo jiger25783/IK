@@ -32,7 +32,7 @@ public class InsertionSort {
             arr[maxPos + 1] = arr[maxPos];
             maxPos --;
         }
-        arr[maxPos+1] = key;
+        arr[maxPos+1] = key;  // Covering edge cases as maxPos will be always at one less then where key could be
         return;
     }
 
@@ -46,5 +46,20 @@ public class InsertionSort {
             }
             arr[j+1] = key;
         }
+        Arrays.sort(new int[] {4,5,6,7,8,94,3,2,2});
     }
+
+
+    private static void insertionSortRecursive2(int[] arr,int n){
+        if(arr == null || n < 2) return;
+        insertionSortRecursive2(arr, n-1);
+        int key = arr[n-1];
+        int i = n-2;
+        while(i >= 0 && arr[i] > key){
+            arr[i+1] = arr[i];
+            i--;
+        }
+        arr[i+1] = key;
+    }
+
 }
